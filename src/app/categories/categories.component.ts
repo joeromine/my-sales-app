@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { CategoriesDataSource, CategoriesItem } from './categories-datasource';
 import { Category } from './category.dto';
 import { CategoryService } from './category.service';
 
@@ -14,7 +13,7 @@ import { CategoryService } from './category.service';
 export class CategoriesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<CategoriesItem>;
+  @ViewChild(MatTable) table!: MatTable<Category>;
   dataSource!: MatTableDataSource<Category>;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */

@@ -21,6 +21,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './categories/form/form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     MenuComponent,
     CategoriesComponent,
-    DashboardComponent
+    DashboardComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
