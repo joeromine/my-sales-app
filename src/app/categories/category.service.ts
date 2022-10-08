@@ -14,4 +14,14 @@ export class CategoryService {
   getAll(){
     return this.http.get<Category[]>(environment.api + 'categories')
   }
+
+  save(category: Category){
+   if(category.id){
+      return this.http.put<Category>(environment.api + `categories/${category.id}`, category)
+    }
+    return this.http.post<Category>(environment.api +'categories', category)
+  }
+  delete(id: number){
+    return this.http.delete(environment.api + 'categories/'+ id);
+  }
 }

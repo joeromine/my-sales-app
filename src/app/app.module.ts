@@ -22,6 +22,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './categories/form/form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -40,6 +44,7 @@ import { FormComponent } from './categories/form/form.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
+    MatInputModule,
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
@@ -47,8 +52,12 @@ import { FormComponent } from './categories/form/form.component';
     AppRoutingModule,
     MatGridListModule,
     MatCardModule,
+    FormsModule,
     MatMenuModule,
-    HttpClientModule
+    MatFormFieldModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

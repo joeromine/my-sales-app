@@ -15,14 +15,28 @@ export class CategoriesComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<Category>;
   dataSource!: MatTableDataSource<Category>;
+  showForm: boolean = false;
+  category!: Category;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'description'];
+  displayedColumns = ['id', 'name', 'description', 'actions'];
 
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
+      this.refreshData()
+  }
 
+  onNewCategoryClick(){
+    this.category = {id: 0, description: '', name: ''};
+    this.showForm= true;
+  }
+  onBack(){
+    this.showForm = false;
+    this.refreshData();
+  }
+
+  refreshData(){
     this.categoryService.getAll().subscribe(
       (categories: Category[]) =>{
 
@@ -32,5 +46,16 @@ export class CategoriesComponent implements OnInit {
         this.table.dataSource = this.dataSource;
       }
     )
+  }
+
+  onSave(category: Category){
+    this.categoryService.save(category).subscribe(()=>{
+      this.showForm = false;
+      this.refreshData();
+    })
+  }
+  onEditCategoryClick(category: Category): void{
+    this.showForm = true;
+    this.category = category;
   }
 }
