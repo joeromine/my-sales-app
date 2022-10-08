@@ -58,4 +58,12 @@ export class CategoriesComponent implements OnInit {
     this.showForm = true;
     this.category = category;
   }
+  onDelete(category: Category){
+    if(confirm(`Delete "${category.name}" with id ${category.id} ?`)){
+      this.categoryService.delete(category.id).subscribe(()=>{
+        this.refreshData()
+      })
+    }
+
+  }
 }

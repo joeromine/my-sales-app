@@ -26,6 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoadingBarComponent } from './loading-bar.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MenuComponent,
     CategoriesComponent,
     DashboardComponent,
-    FormComponent
+    FormComponent,
+    LoadingBarComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatFormFieldModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
