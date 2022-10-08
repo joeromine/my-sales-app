@@ -3,9 +3,13 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-loading-bar',
   template: `
-    <p>
-      loading-bar works!
-    </p>
+<div *ngIf="visable"
+style="display: flex; justify-content: center; align-items: center; background: white;">
+  <mat-progress-spinner
+    color="primary"
+    mode="indeterminate"
+  ></mat-progress-spinner>
+</div>
   `,
   styles: [
   ]
