@@ -2,16 +2,20 @@
   <mat-card>
     <mat-card-title>Categories</mat-card-title>
     <mat-card-subtitle>Listing all categories</mat-card-subtitle>
-    <app-loading-bar [visable]="true"></app-loading-bar>
+    <app-loading-bar [visable]="showLoading"></app-loading-bar>
     <category-form
       *ngIf="showForm"
       (back)="onBack()"
       (save)="onSave($event)"
       [category]="category"
+      [loading]="showLoading"
       ></category-form>
-    <mat-card-content *ngIf="!showForm">
+    <mat-card-content *ngIf="!showForm && !showLoading">
 
-  <table mat-table class="full-width-table" matSort aria-label="Elements">
+  <table mat-table class="full-width-table"
+         [dataSource]="dataSource"
+         matSort
+         aria-label="Elements">
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>

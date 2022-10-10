@@ -10,7 +10,7 @@ import { Category } from '../category.dto';
 export class FormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
-
+  @Input() loading: boolean = false;
   @Output() back = new EventEmitter()
   @Output() save = new EventEmitter();
   @Input() set category(c: Category){

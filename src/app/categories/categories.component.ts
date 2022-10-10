@@ -17,6 +17,7 @@ export class CategoriesComponent implements OnInit {
   dataSource!: MatTableDataSource<Category>;
   showForm: boolean = false;
   category!: Category;
+  showLoading: boolean = false;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'description', 'actions'];
@@ -37,21 +38,25 @@ export class CategoriesComponent implements OnInit {
   }
 
   refreshData(){
+    this.showLoading = true;
     this.categoryService.getAll().subscribe(
       (categories: Category[]) =>{
 
         this.dataSource = new MatTableDataSource(categories);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        this.table.dataSource = this.dataSource;
+        //this.table.dataSource = this.dataSource;
+        this.showLoading = false;
       }
     )
   }
 
   onSave(category: Category){
+    this.showLoading = true;
     this.categoryService.save(category).subscribe(()=>{
       this.showForm = false;
       this.refreshData();
+      this.showLoading = false;
     })
   }
   onEditCategoryClick(category: Category): void{

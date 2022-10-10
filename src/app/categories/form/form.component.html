@@ -13,10 +13,13 @@
       <mat-form-field fxFlex="70%">
         <input matInput placeholder="Description" formControlName="description">
       </mat-form-field>
-  </div>
+   </div>
   <button
   mat-raised-button
-  [disabled]="!categoryForm.valid">Save</button>
+  [disabled]="!categoryForm.valid || loading"
+  color="primary"
+  type="submit"
+  [class.spinner]="loading">Save</button>
   </form>
   <button mat-button color="primary" (click)="onBack()">
     Back
