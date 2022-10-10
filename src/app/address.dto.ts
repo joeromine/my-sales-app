@@ -1,5 +1,3 @@
-declare module namespace {
-
   export interface Address {
       street: string;
       city: string;
@@ -8,14 +6,4 @@ declare module namespace {
       country: string;
       phone: any;
   }
-
-  export interface RootObject {
-      id: number;
-      companyName: string;
-      contactName: string;
-      contactTitle: string;
-      address: Address;
-  }
-
-}
 
