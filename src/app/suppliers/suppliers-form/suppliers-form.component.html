@@ -6,14 +6,11 @@
          fxLayoutWrap
          fxLayoutGap="10">
 
-        <input type="hidden"
-               formControlName="id">
+        <input type="hidden" formControlName="id">
 
         <!-- Company Name -->
         <mat-form-field fxFlex="100%">
-            <input matInput
-                   placeholder="Company Name"
-                   formControlName="companyName" />
+            <input matInput placeholder="Company Name"  formControlName="companyName" />
             <mat-error *ngIf="supplierForm.get('companyName')?.hasError('required')">
                 Company Name is required
             </mat-error>
@@ -24,9 +21,7 @@
 
         <!-- Contact Title -->
         <mat-form-field fxFlex="30%">
-            <input matInput
-                   placeholder="Contact Title"
-                   formControlName="contactTitle" />
+            <input matInput placeholder="Contact Title"    formControlName="contactTitle" />
             <mat-error *ngIf="supplierForm.get('contactTitle')?.hasError('required')">
                 Contact Title is required
             </mat-error>
