@@ -1,1 +1,33 @@
-<p>suppliers-list works!</p>
+<div>
+  <mat-card-subtitle>
+    Listing all Suppliers
+  </mat-card-subtitle>
+
+  <mat-card-content *ngIf="supplierObservable | async; else showLoading">
+    <div fxLayout="row wrap" fxLayoutGap="10px grid">
+      <div *ngFor="let supplier of suppliers">
+        <mat-card [routerLink]="['/suppliers/show/',supplier.id]"
+                  class="blueOver">
+                  <mat-card-content>
+                    <strong>{{supplier.contactName}}</strong>
+                  </mat-card-content>
+
+        </mat-card>
+
+      </div>
+
+    </div>
+    Found {{suppliers.length}} suppliers
+  </mat-card-content>
+  <ng-template #showLoading>
+    <app-loading-bar [visable]="true"></app-loading-bar>
+  </ng-template>
+
+  <mat-card-actions>
+    <button mat-raised-button
+            color="primary"
+            [routerLink]="'/suppliers/new'">New</button>
+  </mat-card-actions>
+</div>
+
+
