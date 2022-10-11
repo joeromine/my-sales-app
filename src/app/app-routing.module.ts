@@ -9,9 +9,11 @@ import { SuppliersShowComponent } from './suppliers/suppliers-show/suppliers-sho
 import { SuppliersEditComponent } from './suppliers/suppliers-edit/suppliers-edit.component';
 import { SuppliersDeleteComponent } from './suppliers/suppliers-delete/suppliers-delete.component';
 import { SuppliersNewComponent } from './suppliers/suppliers-new/suppliers-new.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductsListComponent } from './products/products-list/products-list.component';
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
+  {path: '', component: ProductsComponent, children:[{path: '', component: ProductsListComponent}]},
   {path: 'categories', component: CategoriesComponent},
   {path: 'suppliers', component: SuppliersComponent, children:
   [
@@ -19,7 +21,8 @@ const routes: Routes = [
     {path: 'show/:id', component: SuppliersShowComponent},
     {path: 'edit/:id', component: SuppliersEditComponent},
     {path: 'delete/:id', component: SuppliersDeleteComponent},
-    {path: 'new',    component: SuppliersNewComponent }
+    {path: 'new',    component: SuppliersNewComponent },
+
   ]}
 ]
 
