@@ -15,7 +15,8 @@ export class ProductsListComponent implements OnInit {
   productObservable!: Observable<Product[]>;
   searchForm!: FormGroup;
 
-  constructor(private productService: ProductService, private fb: FormBuilder
+  constructor(private productService: ProductService,
+              private fb: FormBuilder
     ) { }
 
   async ngOnInit() {
@@ -28,9 +29,9 @@ export class ProductsListComponent implements OnInit {
      this.products = await lastValueFrom(this.productObservable);
      }
 
-     onSubmit() {
-     this.getAllProducts(this.searchForm.value.searchTerm);
-     }
+  onSubmit() {
+  this.getAllProducts(this.searchForm.value.searchTerm);
+  }
 
 
   }
