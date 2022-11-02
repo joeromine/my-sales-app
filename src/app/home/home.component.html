@@ -16,6 +16,13 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Sales App</span>
+      <!-- CART BUTTON -->
+      <button mat-icon-button [routerLink]="['/checkout']">
+        <mat-icon matBadgeColor="warn" [matBadge]="cartService.itemsInCart">
+          shopping_cart
+        </mat-icon>
+    </button>
+    
     </mat-toolbar>
     <router-outlet></router-outlet>
 

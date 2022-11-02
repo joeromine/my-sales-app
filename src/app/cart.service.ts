@@ -32,10 +32,8 @@ public addItems(item: CartItem): void{
   if(!found){
     items.push(item);
   }
-  else{
-    localStorage.setItem(this.CART, JSON.stringify(items));
-    localStorage.setItem(this.CART_QUANTITY, items.length.toString());
-  }
+  localStorage.setItem(this.CART, JSON.stringify(items));
+  localStorage.setItem(this.CART_QUANTITY, items.length.toString());
 }
 
 public removeItem(item: CartItem):void {

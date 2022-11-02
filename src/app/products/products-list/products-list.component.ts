@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { lastValueFrom, Observable } from 'rxjs';
 import { Product } from '../product.dto';
 import { ProductService } from '../product.service';
+import { CartService } from '../../cart.service';
+import { registerLocaleData } from '@angular/common';
+import { CartItem } from '../../cart.dto';
 
 @Component({
   selector: 'app-products-list',
@@ -16,7 +19,8 @@ export class ProductsListComponent implements OnInit {
   searchForm!: FormGroup;
 
   constructor(private productService: ProductService,
-              private fb: FormBuilder
+              private fb: FormBuilder,
+              private CartService: CartService
     ) { }
 
   async ngOnInit() {
@@ -33,5 +37,15 @@ export class ProductsListComponent implements OnInit {
   this.getAllProducts(this.searchForm.value.searchTerm);
   }
 
+  onAddToCart(item: Product):void{
+    const ci: CartItem ={
+      idProduct: item.id,
+      unitPrice: item.unitPrice,
+      quantity: 1,
+      name: item.name
+    }
+      this.CartService.addItems(ci)
+
+  }
 
   }
